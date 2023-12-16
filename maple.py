@@ -17,28 +17,34 @@ else:
     header = {'x-nxopen-api-key':key}
 
     res = requests.get(f"https://open.api.nexon.com/maplestory/v1/history/cube?count=1000&date_kst={date}", headers=header).json()
-    res = res["cube_history"]
-    if len(res) == 0:
-        st.header("큐브 사용 내역이 없습니다.")
-
+    
+    if res["error"]:
+        st.header(res["error"]["message"])
+    
     else:
-        df = pd.DataFrame(res)
-        df1 = df[["character_name", "date_create", "cube_type", "target_item", "item_upgrade_result"]]
-        st.dataframe(df1)
-
-        dl = []
-        for i in range(len(df)):
-            dic = df["before_potential_option"][i]
-            dls = []
-            for j in range(len(dic)):
-                dv = dic[j]
-                dv = dv["value"]
-                dls.append(dv)
-            dl.append(dls)
-
-        #print(df.keys())
-
-        df2 = pd.DataFrame(dl)
-        df2.columns = ["첫번째","두번째","세번째"]
-        st.dataframe(df2)
+        res = res["cube_history"]
         
+        if len(res) == 0:
+            st.header("큐브 사용 내역이 없습니다.")
+
+        else:
+            df = pd.DataFrame(res)
+            df1 = df[["character_name", "date_create", "cube_type", "target_item", "item_upgrade_result"]]
+            st.dataframe(df1)
+
+            dl = []
+            for i in range(len(df)):
+                dic = df["before_potential_option"][i]
+                dls = []
+                for j in range(len(dic)):
+                    dv = dic[j]
+                    dv = dv["value"]
+                    dls.append(dv)
+                dl.append(dls)
+
+            #print(df.keys())
+
+            df2 = pd.DataFrame(dl)
+            df2.columns = ["첫번째","두번째","세번째"]
+            st.dataframe(df2)
+            
