@@ -41,12 +41,14 @@ else:
             else:
                 count_cube  = f"{count_cube}번"
             st.write(f"당신은 이날 {count_cube} 큐브질을 했습니다.")
-
-
-
-
             df = pd.DataFrame(res)
-            df1 = df[["character_name", "date_create", "cube_type", "target_item", "item_upgrade_result"]]
+
+            st.write("큐브 등업 결과")
+            df0 = df["item_upgrade_result"].value_counts()
+            st.dataframe(df0)
+
+            
+            df1 = df[["character_name","world_name", "date_create", "cube_type", "target_item"]]
             st.dataframe(df1)
 
             dl = []
