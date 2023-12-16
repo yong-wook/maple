@@ -18,7 +18,7 @@ else:
 
     res = requests.get(f"https://open.api.nexon.com/maplestory/v1/history/cube?count=1000&date_kst={date}", headers=header).json()
     
-    if res["error"]:
+    if "error" in res:
         st.header(res["error"]["message"])
     
     else:
