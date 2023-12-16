@@ -31,18 +31,27 @@ else:
     
     else:
         res = res["cube_history"]
-        
-        if len(res) == 0:
+        count_cube = len(res)
+        if count_cube == 0:
             st.header("큐브 사용 내역이 없습니다.")
 
-        else:
+        else:    
+            if count_cube == 1000:
+                count_cube  = "1000번 넘도록"
+            else:
+                count_cube  = f"{count_cube}번"
+            st.write(f"당신은 이날 {count_cube} 큐브질을 했습니다.")
+
+
+
+
             df = pd.DataFrame(res)
             df1 = df[["character_name", "date_create", "cube_type", "target_item", "item_upgrade_result"]]
             st.dataframe(df1)
 
             dl = []
             for i in range(len(df)):
-                dic = df["before_potential_option"][i]
+                dic = df["after_potential_option"][i]
                 dls = []
                 for j in range(len(dic)):
                     dv = dic[j]
