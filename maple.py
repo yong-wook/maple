@@ -48,7 +48,7 @@ else:
             st.dataframe(df0)
 
             
-            df1 = df[["character_name","world_name", "date_create", "cube_type", "target_item"]]
+            df1 = df[["character_name","world_name", "cube_type", "target_item", "date_create"]]
             st.dataframe(df1)
 
             dl = []
@@ -65,5 +65,5 @@ else:
 
             df2 = pd.DataFrame(dl)
             df2.columns = ["첫번째","두번째","세번째"]
-            st.dataframe(df2)
+            st.dataframe(df2, use_container_width = True)
             
