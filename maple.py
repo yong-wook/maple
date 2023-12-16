@@ -3,6 +3,14 @@ import pandas as pd
 import streamlit as st
 import datetime
 
+
+st.set_page_config (
+    page_title="Use Wook`s maplestory",
+    page_icon="👍"
+)
+
+
+
 st.header("일단 openapi.nexon.com에 가서 Api 키를 발급 받아야 합니다.")
 
 key = st.text_input('api키 입력', '' , label_visibility= "collapsed")
