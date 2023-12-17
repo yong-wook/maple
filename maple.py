@@ -64,8 +64,8 @@ def display_cube_information(cube_history):
         lambda x:[
         'background-color: green' if x["등급"] == '레전드리' else
         'background-color: yellow' if x["등급"] == '유니크' else
-        'background-color: purple' if x["등급"] == '에픽' else
-        'background-color: blue' if x["등급"] == '레어' else ''
+        'background-color: blue' if x["등급"] == '에픽' else
+        'background-color: purple' if x["등급"] == '레어' else ''
         for _ in df2.columns],
         axis=1
     )
