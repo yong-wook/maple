@@ -60,17 +60,14 @@ def display_cube_information(cube_history):
     df2.columns = ["첫번째", "두번째", "세번째"]
     df2["등급"] = df["potential_option_grade"]
     
-    df2_style = df2.style.apply(
-        lambda x:[
-        'background-color: green' if x["등급"] == '레전드리' else
-        'background-color: yellow' if x["등급"] == '유니크' else
-        'background-color: purple' if x["등급"] == '에픽' else
-        'background-color: blue' if x["등급"] == '레어' else ''
-        for _ in df2.columns],
-        axis=1
-    )
-
-
+    grade_colors = {
+    '레전드리': 'background-color: green',
+    '유니크': 'background-color: yellow',
+    '에픽': 'background-color: purple',
+    '레어': 'background-color: blue'
+    }
+    df2_style = df2.style.apply(lambda x: [grade_colors[x["등급"]] for _ in df2.columns], axis=1)
+    
 
     st.dataframe(df2_style, use_container_width=True)
 
