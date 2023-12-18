@@ -60,7 +60,7 @@ def display_cube_information(cube_history):
     #df2 = pd.DataFrame(dl)
     
     df2 = pd.DataFrame([
-    [entry["value"] for entry in cube["after_potential_option"]]
+    [entry["value"] for entry in cube]
     for cube in df["after_potential_option"]
     ])
     
