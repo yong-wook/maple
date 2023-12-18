@@ -46,17 +46,24 @@ def display_cube_information(cube_history):
     
     st.dataframe(df1, use_container_width=True)       
 
-    dl = []
-    for i in range(len(df)):
-        dic = df["after_potential_option"][i]
-        dls = []
-        for j in range(len(dic)):
-            dv = dic[j]
-            dv = dv["value"]
-            dls.append(dv)
-        dl.append(dls)
-
-    df2 = pd.DataFrame(dl)
+    #dl = []
+    #potential_options = [entry['value'] for entry in df['after_potential_option']]
+    #dl.append(potential_options)
+    #for i in range(len(df)):
+        #dic = df["after_potential_option"][i]
+        #dls = []
+        #for j in range(len(dic)):
+        #    dv = dic[j]
+        #    dv = dv["value"]
+        #    dls.append(dv)
+        #dl.append(dls)
+    #df2 = pd.DataFrame(dl)
+    
+    df2 = pd.DataFrame([
+    [entry["value"] for entry in cube["after_potential_option"]]
+    for cube in df["after_potential_option"]
+    ])
+    
     df2.columns = ["첫번째", "두번째", "세번째"]
     df2["등급"] = df["potential_option_grade"]
     
