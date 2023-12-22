@@ -24,13 +24,16 @@ def main():
     url = f"https://open.api.nexon.com/maplestory/v1/ranking/overall?date={s_date}"
     res = requests.get(url, headers= header).json()
     res= res["ranking"]
-    df =pd.DataFrame(res)
-    df= df.set_index("ranking")
-    df = df.rename(columns={"character_name":"캐릭명", "character_level":"레벨","world_name":"서버", "character_gender":"성별", "character_guild_name":"길드명"})
-    
-    ci = random.randint(1,200)
-    st.session_state["char"] = df["캐릭명"][ci]
-    st.dataframe(df, use_container_width=True)
+    if len(res) == 0:
+        st.write("종합랭킹이 조회되지 않습니다.")
+    else:
+        df =pd.DataFrame(res)
+        df= df.set_index("ranking")
+        df = df.rename(columns={"character_name":"캐릭명", "character_level":"레벨","world_name":"서버", "character_gender":"성별", "character_guild_name":"길드명"})
+        
+        ci = random.randint(1,200)
+        st.session_state["char"] = df["캐릭명"][ci]
+        st.dataframe(df, use_container_width=True)
 
                   
 
