@@ -6,7 +6,7 @@ import datetime
 api_key = "live_50138df357699939f3b790093592e8e075fc0519e008653d27fc175e2dc9da5ad961e05fef3f2d19e258e30bf46403b6"
 header = {'x-nxopen-api-key': api_key}
 char_name = st.session_state["char"]
-character_name = st.text_input('캐릭터명을 입력하세요', char_name,)
+character_name = st.text_input('캐릭터명을 입력하세요', f"{char_name}")
 #ocid 발급
 url = f"https://open.api.nexon.com/maplestory/v1/id?character_name={character_name}"
 res = requests.get(url, headers= header).json()
@@ -22,6 +22,7 @@ if "ocid" in res.keys():
     df = pd.DataFrame.from_dict([res])
     df1 = df[["character_name","character_level", "world_name", "character_gender", "character_class", "character_class_level", "character_guild_name"]] 
     df1 = df1.rename(columns={"character_name":"캐릭명", "character_level":"레벨","world_name":"서버", "character_gender":"성별", "character_class":"직업", "character_class_level":"달성전직", "character_guild_name":"길드명"})
+    df1 = df1.set_index("캐릭명")
 
 
     c_img = df["character_image"][0]
