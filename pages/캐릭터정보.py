@@ -6,7 +6,7 @@ import datetime
 api_key = "live_50138df357699939f3b790093592e8e075fc0519e008653d27fc175e2dc9da5ad961e05fef3f2d19e258e30bf46403b6"
 header = {'x-nxopen-api-key': api_key}
 if "char" not in st.session_state:
-    st.session_state["char"] = "마하방패"
+    st.session_state["char"] = "아델"
 
 
 char_name = st.session_state["char"]
