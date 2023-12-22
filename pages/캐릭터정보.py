@@ -22,12 +22,12 @@ if "ocid" in res.keys():
     df = pd.DataFrame.from_dict([res])
     df1 = df[["character_name","character_level", "world_name", "character_gender", "character_class", "character_class_level", "character_guild_name"]] 
     df1 = df1.rename(columns={"character_name":"캐릭명", "character_level":"레벨","world_name":"서버", "character_gender":"성별", "character_class":"직업", "character_class_level":"달성전직", "character_guild_name":"길드명"})
-    df1 = df1.set_index("캐릭명")
+    df2 = df1.set_index("캐릭명")
 
 
     c_img = df["character_image"][0]
     st.markdown(f'<img src="{c_img}">', unsafe_allow_html= True)
-    st.dataframe(df1)
+    st.dataframe(df2, use_container_width=True)
 
     # 무릉도장 정보 조회
     url = f"https://open.api.nexon.com/maplestory/v1/character/dojang?ocid={ocid}&date={s_date}"

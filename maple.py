@@ -27,7 +27,7 @@ def main():
     df= df.set_index("ranking")
     df = df.rename(columns={"character_name":"캐릭명", "character_level":"레벨","world_name":"서버", "character_gender":"성별", "character_guild_name":"길드명"})
     st.session_state["char"] = df["캐릭명"][1]
-    st.dataframe(df)
+    st.dataframe(df, use_container_width=True)
 
                   
 
