@@ -28,8 +28,10 @@ def main():
         st.write("종합랭킹이 조회되지 않습니다.")
     else:
         df =pd.DataFrame(res)
+        df.drop("date", axis = 1, inplace= True)
         df= df.set_index("ranking")
-        df = df.rename(columns={"character_name":"캐릭명", "character_level":"레벨","world_name":"서버", "character_gender":"성별", "character_guild_name":"길드명"})
+        df = df.rename(columns={"character_name":"캐릭명", "character_level":"레벨","world_name":"서버", "character_popularity":"인기도", "character_guildname":"길드명"})
+       
         
         ci = random.randint(1,200)
         st.session_state["char"] = df["캐릭명"][ci]
