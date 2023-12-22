@@ -21,8 +21,9 @@ def main():
     s_date = s_date.strftime("%Y-%m-%d") 
 
     url = f"https://open.api.nexon.com/maplestory/v1/ranking/overall?date={s_date}"
-    res = requests.get(url, headers= header).json()
+    res = requests.get(url, headers= header)
     st.write(f"{res}")
+    res = res.json()
     res= res["ranking"]
     
     df =pd.DataFrame(res)
