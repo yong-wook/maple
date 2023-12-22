@@ -19,14 +19,12 @@ def main():
     st.header("오늘의 종합랭킹")
     s_date = datetime.datetime.today() - datetime.timedelta(days=1)
     s_date = s_date.strftime("%Y-%m-%d") 
-    st.write(f"{s_date}")
+    
 
     url = f"https://open.api.nexon.com/maplestory/v1/ranking/overall?date={s_date}"
     res = requests.get(url, headers= header).json()
     res= res["ranking"]
-    
     df =pd.DataFrame(res)
-    
     df= df.set_index("ranking")
     df = df.rename(columns={"character_name":"캐릭명", "character_level":"레벨","world_name":"서버", "character_gender":"성별", "character_guild_name":"길드명"})
     
