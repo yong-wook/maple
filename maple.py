@@ -3,6 +3,7 @@ import pandas as pd
 import streamlit as st
 import datetime
 
+key = "live_50138df357699939f3b790093592e8e075fc0519e008653d27fc175e2dc9da5ad961e05fef3f2d19e258e30bf46403b"
 
 def get_cube_history(api_key, date):
     date_str = date.strftime("%Y%m%d")
@@ -52,7 +53,7 @@ def display_character_info(df):
 
     cube_history_filtered = filter_by_character(df, selected_characters)
     
-    df1 = cube_history_filtered[["character_name", "world_name", "cube_type", "target_item", "date_create"]]
+    df1 = cube_history_filtered[["character_name", "cube_type", "target_item", "date_create"]]
     st.dataframe(df1, use_container_width=True)
     return cube_history_filtered  # 선택된 캐릭터에 대한 데이터프레임 반환
 
