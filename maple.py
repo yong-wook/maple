@@ -35,7 +35,7 @@ def main():
         
         ci = random.randint(1,200)
         st.session_state["char"] = df["캐릭명"][ci]
-        st.dataframe(df, use_container_width=True)
+        st.dataframe(df,height=1000, use_container_width=True)
 
                   
 

@@ -37,7 +37,6 @@ if "ocid" in res.keys():
     # 무릉도장 정보 조회
     url = f"https://open.api.nexon.com/maplestory/v1/character/dojang?ocid={ocid}&date={s_date}"
     res = requests.get(url, headers= header).json()
-    print(res)
     best_record = res["dojang_best_floor"]
     best_date = res["date_dojang_record"]
     best_time = res["dojang_best_time"]
