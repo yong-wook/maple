@@ -67,12 +67,47 @@ if "ocid" in res.keys():
     st.markdown(f"# 전투력 : {combat_point}")
     
     st.dataframe(df, use_container_width=True)
+    
+    # 착용 아이템 장비 조회
+    
+    url = f"https://open.api.nexon.com/maplestory/v1/character/item-equipment?ocid={ocid}&date={s_date}"
+    res = requests.get(url, headers= header).json()
+    res = res["item_equipment"]
+    col1, col2, col3,col4 = st.columns(4)
+    
+    for i in range(len(res)):
+        res_i = res[i]
+        e_img = res_i["item_icon"]
+        e_name = res_i["item_name"]
+        e_star = res_i["starforce"]
+        e_poten1 = res_i["potential_option_1"]
+        e_poten2 = res_i["potential_option_2"]
+        e_poten3 = res_i["potential_option_3"]
+        e_poten4 = res_i["additional_potential_option_1"]
+        e_poten5 = res_i["additional_potential_option_2"]
+        e_poten6 = res_i["additional_potential_option_3"]
+
+        j = (i%4)+1
+        if j == 1:
+            j = col1
+        if j == 2:
+            j = col2
+        if j == 3:
+            j = col3
+        if j == 4:
+            j = col4
+        with j:
+            st.markdown(f'{e_star}성 {e_name}<img src="{e_img}">',unsafe_allow_html= True)
+            st.markdown(f'윗잠: {e_poten1}/{e_poten2}/{e_poten3}',unsafe_allow_html= True)
+            st.markdown(f'아랫잠: {e_poten4}/{e_poten5}/{e_poten6}',unsafe_allow_html= True)
+            st.divider()
 
 
 
 
 else:
     st.header(f"{character_name}: 해당 캐릭터의 기록이 없어요")
+
 
 
 
