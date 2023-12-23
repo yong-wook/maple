@@ -41,15 +41,15 @@ if "ocid" in res.keys():
     best_date = res["date_dojang_record"]
     best_time = res["dojang_best_time"]
     if best_date == None:
-        best_date = "기록없음                  "
-    st.markdown(f"# 무릉도장 최고층수:  {best_record} /달성일: {best_date[:10]} /소요시간(초): {best_time}")
+        best_date = "기록없음"
+    st.markdown(f"# 무릉도장 기록:  {best_record}층 / {best_time}초")
     
     #유니온 정보 조회
     url = f"https://open.api.nexon.com/maplestory/v1/user/union?ocid={ocid}&date={s_date}"
     res = requests.get(url, headers= header).json()
     union_level =res["union_level"]
     union_grade =res["union_grade"]
-    st.markdown(f"# 유니온레벨 : {union_level} /등급: {union_grade}")
+    st.markdown(f"# 유니온: {union_level}레벨 /{union_grade}")
 
     #상세 스탯 정보 조회
     url = f'https://open.api.nexon.com/maplestory/v1/character/stat?ocid={ocid}&date={s_date}'
