@@ -3,10 +3,11 @@ import pandas as pd
 import streamlit as st
 import datetime
 
+
 api_key = "live_50138df357699939f3b790093592e8e075fc0519e008653d27fc175e2dc9da5ad961e05fef3f2d19e258e30bf46403b6"
 header = {'x-nxopen-api-key': api_key}
 if "char" not in st.session_state:
-    st.session_state["char"] = "아델"
+    st.session_state["char"] = "마하방패"
 
 
 char_name = st.session_state["char"]
@@ -57,7 +58,15 @@ if "ocid" in res.keys():
     res = res["final_stat"]
     df = pd.DataFrame(res)
     df = df.rename(columns={"stat_name":"스탯명", "stat_value":"값"})
+    cobat_point = df[df["스탯명"]=="전투력"]["값"]
+    combat_point = '{:,}'.format(int(cobat_point))
     df = df.set_index("스탯명")
+    
+    
+
+            
+    st.markdown(f"# 전투력 : {combat_point}")
+    
     st.dataframe(df, use_container_width=True)
 
 
