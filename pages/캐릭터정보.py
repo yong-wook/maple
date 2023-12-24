@@ -98,8 +98,14 @@ if "ocid" in res.keys():
             j = col4
         with j:
             st.markdown(f':red[{e_star}성] :green[{e_name}]<img src="{e_img}">',unsafe_allow_html= True)
-            st.markdown(f'윗잠: {e_poten1}/{e_poten2}/{e_poten3}',unsafe_allow_html= True)
-            st.markdown(f'아랫잠: {e_poten4}/{e_poten5}/{e_poten6}',unsafe_allow_html= True)
+            if e_poten1 == None:
+                pass
+            else:
+                st.markdown(f'윗잠: {e_poten1}/{e_poten2}/{e_poten3}',unsafe_allow_html= True)
+            if e_poten4 == None:
+                pass
+            else:
+                st.markdown(f'아랫잠: {e_poten4}/{e_poten5}/{e_poten6}',unsafe_allow_html= True)
             st.divider()
 
 
