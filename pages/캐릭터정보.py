@@ -89,8 +89,7 @@ if "ocid" in res.keys():
         e_poten5 = res_i["additional_potential_option_2"]
         e_poten6 = res_i["additional_potential_option_3"]
         p_grade = {"레전드리":"green", "유니크": "yellow", "에픽":"purple", "레어":"blue", "노멀":"white"}
-        p_grade_color = p_grade[e_p_grade]
-        a_grade_color = p_grade[e_a_grade]
+                
         j = (i%4)+1
         if j == 1:
             j = col1
@@ -105,11 +104,13 @@ if "ocid" in res.keys():
             if e_poten1 == None:
                 pass
             else:
-                st.markdown(f':{p_grade_color}윗잠: {e_poten1}/{e_poten2}/{e_poten3}',unsafe_allow_html= True)
+                p_grade_color = p_grade[e_p_grade]
+                st.markdown(f':{p_grade_color}[윗잠: {e_poten1}/{e_poten2}/{e_poten3}]',unsafe_allow_html= True)
             if e_poten4 == None:
                 pass
             else:
-                st.markdown(f':{a_grade_color}아랫잠: {e_poten4}/{e_poten5}/{e_poten6}',unsafe_allow_html= True)
+                a_grade_color = p_grade[e_a_grade]
+                st.markdown(f':{a_grade_color}[아랫잠: {e_poten4}/{e_poten5}/{e_poten6}]',unsafe_allow_html= True)
             st.divider()
 
 
