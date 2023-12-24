@@ -49,7 +49,7 @@ if "ocid" in res.keys():
     res = requests.get(url, headers= header).json()
     union_level =res["union_level"]
     union_grade =res["union_grade"]
-    st.markdown(f"# 유니온: {union_level}레벨 /{union_grade}")
+    st.markdown(f"# {union_grade}/{union_level}레벨")
 
     #상세 스탯 정보 조회
     url = f'https://open.api.nexon.com/maplestory/v1/character/stat?ocid={ocid}&date={s_date}'
