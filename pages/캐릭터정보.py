@@ -8,6 +8,7 @@ api_key = "live_50138df357699939f3b790093592e8e075fc0519e008653d27fc175e2dc9da5a
 header = {'x-nxopen-api-key': api_key}
 
 code = st.experimental_get_query_params()
+st.experimental_set_query_params()
 if "char" in code:
     st.session_state["char"] = code["char"][0]
 
@@ -38,7 +39,7 @@ if "ocid" in res.keys():
 
     c_img = df["character_image"][0]
     st.markdown(f'<img src="{c_img}">', unsafe_allow_html= True)
-    st.dataframe(df2, use_container_width=True)
+    st.dataframe(df2)
 
     # 무릉도장 정보 조회
     url = f"https://open.api.nexon.com/maplestory/v1/character/dojang?ocid={ocid}&date={s_date}"
@@ -111,7 +112,6 @@ if "ocid" in res.keys():
                 pass
             else:
                 p_grade_color = p_grade[e_p_grade]
-                print(p_grade_color)
                 st.markdown(f':{p_grade_color}[윗잠: {e_poten1}/{e_poten2}/{e_poten3}]',unsafe_allow_html= True)
             if e_poten4 == None:
                 pass
