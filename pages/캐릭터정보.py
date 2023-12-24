@@ -100,7 +100,7 @@ if "ocid" in res.keys():
         if j == 4:
             j = col4
         with j:
-            st.markdown(f':red[{e_star}성] :green[{e_name}]<img src="{e_img}">',unsafe_allow_html= True)
+            st.markdown(f':red[{e_star}성] :maroon[{e_name}]<img src="{e_img}">',unsafe_allow_html= True)
             if e_poten1 == None:
                 pass
             else:
