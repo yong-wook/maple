@@ -9,7 +9,8 @@ api_key = "live_50138df357699939f3b790093592e8e075fc0519e008653d27fc175e2dc9da5a
 header = {'x-nxopen-api-key': api_key}
 
 code = st.experimental_get_query_params()
-st.experimental_set_query_params(**parse_qs())
+qs = None
+st.experimental_set_query_params(**parse_qs(qs))
 if "char" in code:
     st.session_state["char"] = code["char"][0]
 
