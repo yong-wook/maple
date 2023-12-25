@@ -8,7 +8,7 @@ api_key = "live_50138df357699939f3b790093592e8e075fc0519e008653d27fc175e2dc9da5a
 header = {'x-nxopen-api-key': api_key}
 
 code = st.experimental_get_query_params()
-
+st.experimental_set_query_params(**parse_qs()
 if "char" in code:
     st.session_state["char"] = code["char"][0]
 
@@ -127,6 +127,6 @@ else:
     st.header(f"{character_name}: 해당 캐릭터의 기록이 없어요")
 
 
-st.experimental_set_query_params()
+
 
     
