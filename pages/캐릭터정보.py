@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 import streamlit as st
 import datetime
+from urllib.parse import urlencode, parse_qs
 
 
 api_key = "live_50138df357699939f3b790093592e8e075fc0519e008653d27fc175e2dc9da5ad961e05fef3f2d19e258e30bf46403b6"
