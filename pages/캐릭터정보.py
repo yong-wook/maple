@@ -78,7 +78,7 @@ if "ocid" in res.keys():
     st.dataframe(df, use_container_width=True)
 
     #어빌리티 조회 및 표시
-    url = f'https://open.api.nexon.com/maplestory/v1/character/ability?ocid={ocid}={s_date}'
+    url = f'https://open.api.nexon.com/maplestory/v1/character/ability?ocid={ocid}&date={s_date}'
     res = requests.get(url, headers= header).json()
     res = res["ability_info"]
     
