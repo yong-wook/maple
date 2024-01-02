@@ -112,7 +112,7 @@ if "ocid" in res.keys():
             if e_star =="0":
                 e_stare = ""
             else:
-                e_stres = e_star+"성"
+                e_stare = e_star+"성"
             st.markdown(f':red[{e_stare}] :gray[{e_name}]<img src="{e_img}">',unsafe_allow_html= True)
             if e_poten1 == None:
                 pass
