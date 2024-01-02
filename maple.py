@@ -23,10 +23,10 @@ def main():
 
     if  ri == 1:
         st.header("오늘의 종합랭킹")
-        url = f"https://open.api.nexon.com/maplestory/v1/ranking/union?date={s_date}"
+        url = f"https://open.api.nexon.com/maplestory/v1/ranking/overall?date={s_date}"
     else:
         st.header("오늘의 유니온랭킹")
-        url = f"https://open.api.nexon.com/maplestory/v1/ranking/overall?date={s_date}"
+        url = f"https://open.api.nexon.com/maplestory/v1/ranking/union?date={s_date}"
     res = requests.get(url, headers= header).json()
     res= res["ranking"]
     if len(res) == 0:
