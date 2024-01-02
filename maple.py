@@ -16,12 +16,17 @@ def main():
     )
 
     st.header("각종 메이플 정보 검색 공간입니다.")
-    st.header("오늘의 종합랭킹")
     s_date = datetime.datetime.today() - datetime.timedelta(days=1)
     s_date = s_date.strftime("%Y-%m-%d") 
-    
 
-    url = f"https://open.api.nexon.com/maplestory/v1/ranking/overall?date={s_date}"
+    ri = random.randint(1,2)
+
+    if  ri == 1:
+        st.header("오늘의 종합랭킹")
+        url = f"https://open.api.nexon.com/maplestory/v1/ranking/union?date={s_date}"
+    else:
+        st.header("오늘의 유니온랭킹")
+        url = f"https://open.api.nexon.com/maplestory/v1/ranking/overall?date={s_date}"
     res = requests.get(url, headers= header).json()
     res= res["ranking"]
     if len(res) == 0:
