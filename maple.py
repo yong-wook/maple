@@ -19,18 +19,22 @@ def main():
     s_date = datetime.datetime.today() - datetime.timedelta(days=1)
     s_date = s_date.strftime("%Y-%m-%d") 
 
-    ri = random.randint(1,2)
+    ri = random.randint(1,3)
 
     if  ri == 1:
         st.header("오늘의 종합랭킹")
         url = f"https://open.api.nexon.com/maplestory/v1/ranking/overall?date={s_date}"
-    else:
+    if ri == 2:
         st.header("오늘의 유니온랭킹")
         url = f"https://open.api.nexon.com/maplestory/v1/ranking/union?date={s_date}"
+    if ri == 3:
+        st.header("오늘의 무릉랭킹")
+        url = f"https://open.api.nexon.com/maplestory/v1/ranking/dojang?date={s_date}&difficulty=1"
+        
     res = requests.get(url, headers= header).json()
     res= res["ranking"]
     if len(res) == 0:
-        st.write("종합랭킹이 조회되지 않습니다.")
+        st.write("랭킹이 조회되지 않습니다.")
     else:
         df =pd.DataFrame(res)
         df.drop("date", axis = 1, inplace= True)
