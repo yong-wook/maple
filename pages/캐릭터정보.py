@@ -76,6 +76,21 @@ if "ocid" in res.keys():
     st.markdown(f"# 전투력 : {combat_point}")
     
     st.dataframe(df, use_container_width=True)
+
+    #어빌리티 조회 및 표시
+    url = f'https://open.api.nexon.com/maplestory/v1/character/ability?ocid={ocid}={s_date}'
+    res = requests.get(url, headers= header).json()
+    res = res["ability_info"]
+    
+    p_grade = {"레전드리":"green", "유니크": "orange", "에픽":"violet", "레어":"blue", "노멀":"white"}
+    st.markdown("어빌리티")
+    for i in range(len(res)):
+        resq = res[i]
+        a_grade = resq["ability_grade]
+        abil = resq["ability_value"]
+        a_grade_color = p_grade[a_grade]
+        st.markdown(f':{a_grade_color}[{abil}]')
+    
     
     # 착용 아이템 장비 조회
     
