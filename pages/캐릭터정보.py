@@ -86,7 +86,7 @@ if "ocid" in res.keys():
     st.markdown("어빌리티")
     for i in range(len(res)):
         resq = res[i]
-        a_grade = resq["ability_grade]
+        a_grade = resq["ability_grade"]
         abil = resq["ability_value"]
         a_grade_color = p_grade[a_grade]
         st.markdown(f':{a_grade_color}[{abil}]')
