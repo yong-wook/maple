@@ -90,7 +90,7 @@ if "ocid" in res.keys():
         abil = resq["ability_value"]
         a_grade_color = p_grade[a_grade]
         st.markdown(f':{a_grade_color}[{abil}]')
-    
+    st.divider()
     
     # 착용 아이템 장비 조회
     
