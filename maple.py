@@ -52,7 +52,7 @@ def main():
                    issue-term="pathname"
                    theme="photon-dark"
                    crossorigin="anonymous"
-                   async>
+                   async>댓글
                    </script>'''
     st.markdown(comment_html, unsafe_allow_html = True)
 
