@@ -47,7 +47,7 @@ def main():
         st.dataframe(df,height=1000, use_container_width=True)
 
     st.markdown('''<script src="https://utteranc.es/client.js" 
-                repo="[yong-wook/maple]" 
+                repo="yong-wook/maple" 
                 issue-term="pathname" theme="github-light" 
                 crossorigin="anonymous" async>
                 </script>''', unsafe_allow_html= True)            
