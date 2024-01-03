@@ -45,7 +45,7 @@ def main():
         
         ci = random.randint(1,200)
         st.session_state["char"] = df["캐릭명"][ci]
-        st.dataframe(df,height=1000, use_container_width=True)
+        st.dataframe(df,height=800, use_container_width=True)
 
     comment_html = '''<script src="https://utteranc.es/client.js"
                    repo="yong-wook/maple"
@@ -54,7 +54,7 @@ def main():
                    crossorigin="anonymous"
                    async>
                    </script>'''
-    html(comment_html)
+    st.markdown(comment_html, unsafe_allow_html = True)
 
 
 if __name__ == "__main__":
