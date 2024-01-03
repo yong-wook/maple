@@ -48,13 +48,13 @@ def main():
 
       st.markdown('''
           <script src="https://utteranc.es/client.js"
-        repo="[https://github.com/yong-wook/maple]"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
-      ''', unsafe_allow_html= True)            
+          repo="[https://github.com/yong-wook/maple]"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+          </script>
+          ''', unsafe_allow_html= True)            
 
 
 if __name__ == "__main__":
