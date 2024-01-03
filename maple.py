@@ -3,6 +3,7 @@ import pandas as pd
 import streamlit as st
 import datetime
 import random
+from streamlit.components.v1 import html
 
 
 api_key = "live_50138df357699939f3b790093592e8e075fc0519e008653d27fc175e2dc9da5ad961e05fef3f2d19e258e30bf46403b6"
@@ -46,13 +47,13 @@ def main():
         st.session_state["char"] = df["캐릭명"][ci]
         st.dataframe(df,height=1000, use_container_width=True)
 
-    st.markdown('''<script src="https://utteranc.es/client.js"
-        repo="yong-wook/maple"
-        issue-term="pathname"
-        theme="photon-dark"
-        crossorigin="anonymous"
-        async>
-        </script>''', unsafe_allow_html= True)            
+    comment_html = '''<script src="https://utteranc.es/client.js"
+                   repo="yong-wook/maple"
+                   issue-term="pathname"
+                   theme="photon-dark"
+                   crossorigin="anonymous"
+                   async>
+                   </script>'''
 
 
 if __name__ == "__main__":
