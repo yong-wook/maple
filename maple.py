@@ -46,7 +46,15 @@ def main():
         st.session_state["char"] = df["캐릭명"][ci]
         st.dataframe(df,height=1000, use_container_width=True)
 
-                  
+      st.markdown('''
+          <script src="https://utteranc.es/client.js"
+        repo="[https://github.com/yong-wook/maple]"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+      ''')            
 
 
 if __name__ == "__main__":
