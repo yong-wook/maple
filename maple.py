@@ -54,6 +54,7 @@ def main():
                    crossorigin="anonymous"
                    async>
                    </script>'''
+    html(comment_html)
 
 
 if __name__ == "__main__":
