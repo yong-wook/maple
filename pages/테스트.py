@@ -1,3 +1,3 @@
 import streamlit as st
 
-st.markdown("location.href = 'www.naver.com'", unsafe_allow_html=True)
+st.markdown("<script>location.href = 'www.naver.com'</script>", unsafe_allow_html=True)
